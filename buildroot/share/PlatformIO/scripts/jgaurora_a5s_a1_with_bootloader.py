@@ -11,15 +11,14 @@ def addboot(source,target,env):
 
 	firmware = open(target[0].path, "rb")
 	lengthfirmware = os.path.getsize(target[0].path)
-
 	bootloader_dir = "buildroot/share/PlatformIO/scripts/jgaurora_bootloader.bin"
 	bootloader = open(bootloader_dir, "rb")
 	lengthbootloader = os.path.getsize(bootloader_dir)
-
-	firmwareimage = open(target[0].dir.path +'/firmware_with_bootloader.bin', "wb")
-
+	firmware_with_boothloader_dir = target[0].dir.path +'/firmware_with_bootloader.bin'
+	if os.path.exists(firmware_with_boothloader_dir):
+		os.remove(firmware_with_boothloader_dir)
+	firmwareimage = open(firmware_with_boothloader_dir, "wb")
 	position = 0
-
 	while position < lengthbootloader:
 		byte = bootloader.read(1)
 		firmwareimage.write(byte)
@@ -32,8 +31,11 @@ def addboot(source,target,env):
 	bootloader.close()
 	firmware.close()
 	firmwareimage.close()
-	os.rename(target[0].path, target[0].dir.path+'/firmware_for_sd_upload.bin') 
-	os.rename(target[0].dir.path+'/firmware_with_bootloader.bin', target[0].dir.path+'/firmware.bin') 
+	firmware_without_bootloader_dir = target[0].dir.path+'/firmware_for_sd_upload.bin'
+	if os.path.exists(firmware_without_bootloader_dir):
+		os.remove(firmware_without_bootloader_dir)
+	os.rename(target[0].path, firmware_without_bootloader_dir)
+	#os.rename(target[0].dir.path+'/firmware_with_bootloader.bin', target[0].dir.path+'/firmware.bin') 
 
 env.AddPostAction("$BUILD_DIR/${PROGNAME}.bin", addboot);
 

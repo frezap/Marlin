@@ -94,6 +94,12 @@
   #if HAS_SLOW_BUTTONS
     volatile uint8_t MarlinUI::slow_buttons;
   #endif
+  #if defined(TOUCH_BUTTONS)
+    #include "xpt2046.h"
+    volatile uint8_t MarlinUI::touch_buttons;
+    uint8_t MarlinUI::read_touch_buttons() { return xpt2046_read_buttons(); }
+  #endif
+
 #endif
 
 #if ENABLED(SDSUPPORT) && PIN_EXISTS(SD_DETECT)
@@ -253,7 +259,9 @@ void MarlinUI::init() {
   #if HAS_ENCODER_ACTION && HAS_SLOW_BUTTONS
     slow_buttons = 0;
   #endif
-
+  #if HAS_ENCODER_ACTION && defined(TOUCH_BUTTONS)
+    touch_buttons = 0;
+  #endif
   update_buttons();
 
   #if HAS_ENCODER_ACTION
@@ -747,7 +755,10 @@ void MarlinUI::update() {
       #if HAS_SLOW_BUTTONS
         slow_buttons = read_slow_buttons(); // Buttons that take too long to read in interrupt context
       #endif
+      #if defined(TOUCH_BUTTONS)
+        touch_buttons = read_touch_buttons();
 
+      #endif
       #if ENABLED(REPRAPWORLD_KEYPAD)
 
         if (handle_keypad()) {
@@ -1082,9 +1093,12 @@ void MarlinUI::update() {
 
         #endif // UP || DWN || LFT || RT
 
-        buttons = newbutton
+        buttons |= newbutton
           #if HAS_SLOW_BUTTONS
             | slow_buttons
+          #endif
+          #if defined(TOUCH_BUTTONS)
+            | touch_buttons
           #endif
         ;
 

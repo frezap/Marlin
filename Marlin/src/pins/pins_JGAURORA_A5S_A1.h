@@ -115,6 +115,16 @@
 //
 // Misc.
 //
-#define BEEPER_PIN         PC3
+#define BEEPER_PIN         PC3 // use PB7 to shut up if desired
 #define LED_PIN            PC13
 #define SDSS               -1
+
+
+// Touch support
+#define BTN_ENC            PA11 // Real pin is needed to enable encoder's push button functionality used by touch screen. PA11 gives stable value.
+#define BTN_EN1            -1
+#define BTN_EN2            -1
+
+#define TOUCH_CS           PA4
+//#define TOUCH_INTERRUPT    PC4// not yet implemented
+
