@@ -38,8 +38,11 @@
 //===========================================================================
 //=============================Thermal Settings  ============================
 //===========================================================================
-// #define HEATER_BED_INVERTING 1
-// #define HEATER_0_INVERTING 1
+
+#define HEATER_BED_INVERTING 1
+#define HEATER_0_INVERTING 1
+#define FAN_INVERTING 1
+
 // #define HEATER_1_INVERTING 0
 //
 // Hephestos 2 24V heated bed upgrade kit.
