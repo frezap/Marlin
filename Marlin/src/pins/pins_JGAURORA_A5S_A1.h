@@ -23,7 +23,7 @@
  /**
   * 2017 Victor Perez Marlin for stm32f1 test
   * 2018 Modified by Pablo Crespo for Morpheus Board (https://github.com/pscrespo/Morpheus-STM32)
-  * 2019 Modified by Roberto Mariani for JGAurora A5S A1 Board.
+  * 2019 Modified by Roberto Mariani & Samuel Pinches for JGAurora A5S & A1 Board.
   */
 
 /**
@@ -40,9 +40,13 @@
 #define A1                 0x01
 #define A5S                0x02
 
-// I2C EEPROM with 64K of space - AT24C64
-#define I2C_EEPROM
-#define E2END 0xFFFF
+// // I2C EEPROM with 64K of space - AT24C64
+// #define I2C_EEPROM
+// #define E2END 0xFFFF
+
+// Enable EEPROM Emulation for this board
+//#define FLASH_EEPROM_EMULATION
+//#define MCU_STM32F103ZE
 
 //
 // Limit Switches
