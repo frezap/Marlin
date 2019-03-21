@@ -42,11 +42,18 @@
 
 // // I2C EEPROM with 64K of space - AT24C64
 // #define I2C_EEPROM
-// #define E2END 0xFFFF
+// #define E2END 0x7FFF
 
 // Enable EEPROM Emulation for this board
-//#define FLASH_EEPROM_EMULATION
+
+
+//#define FLASH_EEPROM_EMULATION 1
 //#define MCU_STM32F103ZE
+//#define E2END  0xFFF //((uint32)(EEPROM_START_ADDRESS + EEPROM_PAGE_SIZE + EEPROM_PAGE_SIZE)) // 	 not 0xFFF
+//#define EEPROM_CHITCHAT
+//#define DEBUG_EEPROM_READWRITE
+
+
 
 //
 // Limit Switches
