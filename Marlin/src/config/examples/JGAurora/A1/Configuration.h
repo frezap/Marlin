@@ -75,7 +75,7 @@
 // build by the user have been successfully uploaded into firmware.
 #define STRING_CONFIG_H_AUTHOR "(Roberto Mariani & Samuel Pinches)" // Who made the changes.
 #define SHOW_BOOTSCREEN
-#define STRING_SPLASH_LINE1 "Marlin 2b3 (22/3/19)" // will be shown during bootup in line 1
+#define STRING_SPLASH_LINE1 "Marlin 2b4 (24/3/19)" // will be shown during bootup in line 1
 #define STRING_SPLASH_LINE2 "JGAuroraForum.com"         // will be shown during bootup in line 2
 
 /**
@@ -984,13 +984,13 @@
 
 // The size of the print bed
 #define X_BED_SIZE 310
-#define Y_BED_SIZE 310
+#define Y_BED_SIZE 305
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -6
-#define Y_MIN_POS 0
+#define X_MIN_POS 0
+#define Y_MIN_POS -7
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE -6
+#define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 310
 
@@ -1251,7 +1251,7 @@
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
 #define MANUAL_X_HOME_POS X_MAX_POS
-#define MANUAL_Y_HOME_POS -3
+#define MANUAL_Y_HOME_POS -7
 #define MANUAL_Z_HOME_POS 0
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
@@ -1617,7 +1617,7 @@
 //
 //  Set this option if CLOCKWISE causes values to DECREASE
 //
-#define REVERSE_ENCODER_DIRECTION
+//#define REVERSE_ENCODER_DIRECTION
 
 //
 // This option reverses the encoder direction for navigating LCD menus.
@@ -1941,6 +1941,7 @@
 // MKS Robin 320x240 color display
 // Also used for JGAurora A5S & A1 TFT LCD's (16-bit Parallel LCD via FSMC)
 #define MKS_ROBIN_TFT
+
 #define PRINTER_EVENT_LEDS
 //=============================================================================
 //============================  Other Controllers  ============================

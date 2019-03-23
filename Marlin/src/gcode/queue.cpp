@@ -765,7 +765,7 @@ inline void get_serial_commands() {
             SERIAL_ECHOLNPGM(MSG_FILE_PRINTED);
             #if ENABLED(PRINTER_EVENT_LEDS)
               printerEventLEDs.onPrintCompleted();
-              #if HAS_RESUME_CONTINUE
+              #if (HAS_RESUME_CONTINUE && DISABLED(NO_PAUSE_AFTER_PRINT))
                 enqueue_and_echo_commands_P(PSTR("M0 S"
                   #if HAS_LCD_MENU
                     "1800"

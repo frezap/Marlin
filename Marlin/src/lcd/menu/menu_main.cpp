@@ -109,7 +109,6 @@ void menu_user();
 void menu_temp_e0_filament_change();
 void menu_change_filament();
 void menu_info();
-void menu_led();
 
 #if ENABLED(MIXING_EXTRUDER)
   void menu_mixer();
@@ -143,6 +142,20 @@ void menu_main() {
     #if ENABLED(SDSUPPORT) || defined(ACTION_ON_CANCEL)
       MENU_ITEM(submenu, MSG_STOP_PRINT, menu_abort_confirm);
     #endif
+
+    #if ENABLED(BABYSTEPPING)
+      #if ENABLED(BABYSTEP_XY)
+        MENU_ITEM(submenu, MSG_BABYSTEP_X, lcd_babystep_x);
+        MENU_ITEM(submenu, MSG_BABYSTEP_Y, lcd_babystep_y);
+      #endif
+      #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
+        MENU_ITEM(submenu, MSG_ZPROBE_ZOFFSET, lcd_babystep_zoffset);
+      #else
+        MENU_ITEM(submenu, MSG_BABYSTEP_Z, lcd_babystep_z);
+      #endif
+    #endif
+
+
     MENU_ITEM(submenu, MSG_TUNE, menu_tune);
   }
   else {
@@ -211,9 +224,7 @@ void menu_main() {
     MENU_ITEM(submenu, MSG_INFO_MENU, menu_info);
   #endif
 
-  #if ENABLED(LED_CONTROL_MENU)
-    MENU_ITEM(submenu, MSG_LED_CONTROL, menu_led);
-  #endif
+
 
   //
   // Switch power on/off

@@ -139,3 +139,4 @@
 #define TOUCH_CS           PA4
 //#define TOUCH_INTERRUPT    PC4// not yet implemented
 
+#define NO_PAUSE_AFTER_PRINT

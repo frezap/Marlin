@@ -22,8 +22,13 @@ uint8_t xpt2046_read_buttons() {
 
 
   if (y < 0 || y > 220) return 0;
-  if (x >  0 & x <  200) encoderDiff = - ENCODER_STEPS_PER_MENU_ITEM * ENCODER_PULSES_PER_STEP;
-  if (x > 200 & x < 380) encoderDiff = ENCODER_STEPS_PER_MENU_ITEM * ENCODER_PULSES_PER_STEP;
+  if (x>0 & x< 380) {
+      if (x<200){encoderDiff = +ENCODER_STEPS_PER_MENU_ITEM * ENCODER_PULSES_PER_STEP * ui.encoderDirection;}
+      if (x>200){encoderDiff = -ENCODER_STEPS_PER_MENU_ITEM * ENCODER_PULSES_PER_STEP * ui.encoderDirection;}
+      #ifdef REVERSE_ENCODER_DIRECTION
+          encoderDiff = -encoderDiff;
+      #endif
+  } 
   if (x > 380 & x < 580) return EN_C;
   return 0;  
   // if (x > 0 & x < 580 & y > 0 & y < 440) return EN_C;
