@@ -1,3 +1,5 @@
+<img align="top" width=175 src="buildroot/share/pixmaps/logo/marlin-250.png" />
+
 # Marlin 3D Printer Firmware
 
 Marlin firmware build modified for JGAurora A5S and A1 using STM32F103ZET6. 
@@ -9,7 +11,6 @@ Includes awesome LCD/touchscreen work by jmz52 for MKS Robin (https://github.com
 [![Build Status](https://travis-ci.org/MarlinFirmware/Marlin.svg?branch=RCBugFix)](https://travis-ci.org/MarlinFirmware/Marlin)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/2224/badge.svg)](https://scan.coverity.com/projects/2224)
 
-<img align="top" width=175 src="buildroot/share/pixmaps/logo/marlin-250.png" />
 
 Additional documentation can be found at the [Marlin Home Page](http://marlinfw.org/).
 Please test this firmware and let us know if it misbehaves in any way. Volunteers are standing by!
