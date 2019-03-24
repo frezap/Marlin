@@ -2,9 +2,10 @@
 
 # Marlin 3D Printer Firmware
 
-Marlin firmware build modified for JGAurora A5S and A1 using STM32F103ZET6. 
+Marlin firmware build modified for JGAurora A5S and A1 using STM32F103ZET6, via STM32F1 HAL.
 
-Includes awesome LCD/touchscreen work by jmz52 for MKS Robin (https://github.com/jmz52/Marlin/tree/MKS-Robin-Touch-POC).
+Includes awesome [LCD/touchscreen work by jmz52 for MKS Robin](https://github.com/jmz52/Marlin/tree/MKS-Robin-Touch-POC).
+Uses [STM32F1 HAL managed by Roger Clark](https://github.com/rogerclarkmelbourne/Arduino_STM32).
 
 --------
 
