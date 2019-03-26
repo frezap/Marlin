@@ -2,6 +2,8 @@ Import("env")
 
 # Relocate firmware from 0x08000000 to 0x0800A000
 env['CPPDEFINES'].remove(("VECT_TAB_ADDR", 134217728))
+# for STSTM >5.1.0 use line below
+#env['CPPDEFINES'].remove(("VECT_TAB_ADDR", "0x8000000")) 
 env['CPPDEFINES'].append(("VECT_TAB_ADDR", "0x0800A000"))
 env.Replace(LDSCRIPT_PATH="buildroot/share/PlatformIO/ldscripts/jgaurora_a5s_a1.ld")
 
