@@ -695,7 +695,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 360, 300, 15, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 360, 150, 15, 25 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -703,7 +703,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 1200, 700, 100, 500 }
+#define DEFAULT_MAX_ACCELERATION      { 1200, 350, 100, 500 }
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -722,7 +722,7 @@
 //
 #define JUNCTION_DEVIATION
 #if ENABLED(JUNCTION_DEVIATION)
-  #define JUNCTION_DEVIATION_MM 0.02  // (mm) Distance from real junction edge
+  #define JUNCTION_DEVIATION_MM 0.01  // (mm) Distance from real junction edge
 #endif
 
 /**
@@ -988,10 +988,10 @@
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
-#define Y_MIN_POS -7
+#define Y_MIN_POS -10
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
-#define Y_MAX_POS Y_BED_SIZE
+#define Y_MAX_POS Y_BED_SIZE+10
 #define Z_MAX_POS 310
 
 /**
