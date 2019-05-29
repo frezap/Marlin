@@ -31,6 +31,7 @@
 // Includes
 // --------------------------------------------------------------------------
 
+#include "../../inc/MarlinConfig.h"
 #include "HAL.h"
 #include <STM32ADC.h>
 #include "../../inc/MarlinConfig.h"
@@ -209,6 +210,13 @@ static void NVIC_SetPriorityGrouping(uint32_t PriorityGroup) {
 
 void HAL_init(void) {
   NVIC_SetPriorityGrouping(0x3);
+  
+#if (MOTHERBOARD == BOARD_JGAURORA_A5S_A1)
+        pinMode(FAN_PIN, PWM); 
+        // very important to setup the pin mode of PWM pins using an STM32F1 maple-based HAL, see 
+        // http://docs.leaflabs.com/static.leaflabs.com/pub/leaflabs/maple-docs/0.0.12/lang/api/analogwrite.html#difference-2-you-must-use-pinmode-to-set-up-pwm
+#endif
+  
 }
 
 /* VGPV Done with defines

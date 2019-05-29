@@ -242,6 +242,8 @@
    #define ULTRA_LCD
    #define DOGLCD
    #define ULTIPANEL
+   #define RGB_DISPLAY
+   #define TOUCH_BUTTONS
  #endif
 
 /**

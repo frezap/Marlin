@@ -30,6 +30,7 @@
 // Includes
 // --------------------------------------------------------------------------
 
+#include "../../inc/MarlinConfig.h"
 #include "HAL.h"
 
 #include "HAL_timers_STM32F1.h"

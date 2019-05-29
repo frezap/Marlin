@@ -36,6 +36,7 @@
 // Includes
 // --------------------------------------------------------------------------
 
+#include "../../inc/MarlinConfig.h"
 #include "HAL.h"
 #include "../shared/HAL_SPI.h"
 #include "pins_arduino.h"

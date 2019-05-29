@@ -51,6 +51,8 @@
 
 void menu_advanced_settings();
 void menu_delta_calibrate();
+void menu_led();
+
 
 static void lcd_factory_settings() {
   settings.reset();
@@ -342,6 +344,10 @@ void menu_configuration() {
   //
   #if EXTRUDERS > 1
     MENU_ITEM(submenu, MSG_TOOL_CHANGE, menu_tool_change);
+  #endif
+
+  #if ENABLED(LED_CONTROL_MENU)
+    MENU_ITEM(submenu, MSG_LED_CONTROL, menu_led);
   #endif
 
   //
