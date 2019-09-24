@@ -52,7 +52,7 @@
 //
 #define X_STOP_PIN         PC6
 #define Y_STOP_PIN         PG8
-#define Z_STOP_PIN         PG7
+#define Z_STOP_PIN         PF5//PG7
 //#define X_MAX_PIN          PC5
 //#define Y_MAX_PIN          PC4
 //#define Z_MAX_PIN          PB0
@@ -125,3 +125,12 @@
   #define TOUCH_CS_PIN     PA4
   #define TOUCH_INT_PIN    PC4
 #endif
+
+//
+// Servo / BLTouch
+//
+#define NUM_SERVOS 1
+#define SERVO0_TIMER_NUM 8
+//#define SERVO0_PWM_OD
+#define SERVO0_PIN PF4
+//#define Z_MIN_PROBE_PIN PG0
